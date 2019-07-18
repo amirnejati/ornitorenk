@@ -10,7 +10,8 @@ class ServerService:
 
     guid = None  # PK
     name = None
-    bash_txt = None
+    script_cmd = None
+    script_type = None  # bash/python
     timeout = None  # up/down
     retry = None
     cron_txt = None
