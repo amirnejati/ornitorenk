@@ -20,3 +20,12 @@ class AgentService:
     def __init__(self):
         self._db_conn = db_conn
         self.guid = uuid.uuid4().hex
+
+    def agent_services_create(self, **kwargs):
+        raise NotImplementedError()
+
+    def agent_services_edit(self, **kwargs):
+        raise NotImplementedError()
+
+    def agent_services_remove(self, **kwargs):
+        raise NotImplementedError()

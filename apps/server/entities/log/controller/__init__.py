@@ -20,3 +20,19 @@ class ServerLog:
         self._db_conn = db_conn
         self.guid = uuid.uuid4().hex
         self.dt = datetime.now()
+
+    def server_logs_create(self, **kwargs):
+        raise NotImplementedError()
+
+    def server_logs_edit(self, **kwargs):
+        raise NotImplementedError()
+
+    def server_logs_remove(self, **kwargs):
+        raise NotImplementedError()
+
+    def server_logs_get_all(self, **kwargs):
+        raise NotImplementedError()
+
+    def server_logs_get_last(self, **kwargs):
+        # get_last: status
+        raise NotImplementedError()
