@@ -3,5 +3,6 @@ from ornitorenk.start_srv import start_server
 
 
 if __name__ == '__main__':
-    start_server()
-    start_agent()
+    pass
+    # start_server()
+    # start_agent()
