@@ -1,6 +1,6 @@
 from flask import request, jsonify
 
-from ornitorenk.main import app
+from ornitorenk.start_agt import app
 from ..controller import AgentLog
 
 
