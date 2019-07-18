@@ -24,4 +24,5 @@ class AgentLog:
         raise NotImplementedError()
 
     def agent_logs_create(self, **kwargs):
+        """This method calls by Celery"""
         raise NotImplementedError()
