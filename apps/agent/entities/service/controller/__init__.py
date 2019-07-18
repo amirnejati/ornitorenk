@@ -1,6 +1,6 @@
 import uuid
 
-from ornitorenk.apps.agent.db_connection import db_conn
+from ornitorenk.apps.agent.agent_db_conn import db_conn
 
 
 __author__ = "ornitorenk"
@@ -8,7 +8,7 @@ __author__ = "ornitorenk"
 
 class AgentService:
 
-    guid = None
+    guid = None  # PK
     name = None
     bash_txt = None
     timeout = None  # up/down
