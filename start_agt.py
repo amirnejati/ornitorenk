@@ -9,7 +9,11 @@ def start_agent():
     from ornitorenk.apps.agent.entities.service.api import agt_bp
 
     app.register_blueprint(agt_bp, url_prefix='/agt')
-    app.run(host='127.0.0.1', port=8081, threaded=True)
+    app.run(host='127.0.0.1', port=8081, threaded=False)
+
+    from ornitorenk.apps.agent.agent_db_conn import _initiate_logs, _initiate_services
+    _initiate_logs()
+    _initiate_services()
 
 
 if __name__ == '__main__':

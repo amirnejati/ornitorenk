@@ -21,8 +21,22 @@ class AgentLog:
         self.dt = datetime.now()
 
     def agent_logs_fetch_all(self, **kwargs):
-        raise NotImplementedError()
+        c = self._db_conn.cursor()
+        c.execute('select * from logs')
+        yield c.fetchall()
+        c.execute('delete from logs')
+        self._db_conn.commit()
 
     def agent_logs_create(self, **kwargs):
         """This method calls by Celery"""
-        raise NotImplementedError()
+        keys = [k for k in kwargs.keys()]
+        values = [[kwargs[k] for k in keys]]
+        keys.append('guid')
+        values[0].append(self.guid)
+        c = self._db_conn.cursor()
+        insert_script = 'INSERT INTO logs ({columns}) VALUES ({values});'.format(
+            columns=','.join(keys),
+            values=','.join('?' * len(keys)))
+        c.execute(insert_script)
+        c.executemany(insert_script, values)
+        self._db_conn.commit()
