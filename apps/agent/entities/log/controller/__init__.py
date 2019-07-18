@@ -18,7 +18,7 @@ class AgentLog:
     def __init__(self):
         self._db_conn = db_conn
         self.guid = uuid.uuid4().hex
-        self.dt = datetime.now()
+        self.dt = datetime.now().timestamp()
 
     def agent_logs_fetch_all(self, **kwargs):
         c = self._db_conn.cursor()
@@ -33,6 +33,8 @@ class AgentLog:
         values = [[kwargs[k] for k in keys]]
         keys.append('guid')
         values[0].append(self.guid)
+        keys.append('dt')
+        values[0].append(self.dt)
         c = self._db_conn.cursor()
         insert_script = 'INSERT INTO logs ({columns}) VALUES ({values});'.format(
             columns=','.join(keys),
