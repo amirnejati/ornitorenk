@@ -22,3 +22,6 @@ class AgentLog:
 
     def agent_logs_fetch_all(self, **kwargs):
         raise NotImplementedError()
+
+    def agent_logs_create(self, **kwargs):
+        raise NotImplementedError()
