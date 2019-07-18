@@ -20,5 +20,5 @@ class AgentLog:
         self.guid = uuid.uuid4().hex
         self.dt = datetime.now()
 
-    def logs_fetch_all(self, **kwargs):
+    def agent_logs_fetch_all(self, **kwargs):
         raise NotImplementedError()
